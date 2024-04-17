@@ -56,3 +56,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 ```powershell
 go run main.go sysinfo -i 192.168.44.134 -u root -P 22 -p 1 -c "uptime" --excel true #输入IP，用户，密码信息，以及要执行的 命令，这里只对 uptime进行了输出至数据库，这里的 "可以是任何命令，简单的实现跳板机功能,添加了 --excel true就会打印数据库的信息"
 ```
+
+## 代办
+
+1 cobra-cli add azure 添加 azure的 SDK子命令
