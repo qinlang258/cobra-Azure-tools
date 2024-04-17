@@ -4,6 +4,7 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"cobra-Azure-tools/exportexcel"
 	"cobra-Azure-tools/utils"
 	"fmt"
 
@@ -35,6 +36,14 @@ to quickly create a Cobra application.`,
 		fmt.Println("执行命令结果 如下：")
 
 		utils.Sysinfo(host, pwd, username, port, command1, excel)
+
+		if excel {
+			//如果 输入的命令是 uptime,以及  --excel true，则会输出一份excel在当前目录
+			if command1 == "uptime" {
+				exportexcel.ExportVmCpu()
+			}
+
+		}
 
 	},
 }

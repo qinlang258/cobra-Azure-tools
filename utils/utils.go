@@ -8,8 +8,6 @@ import (
 	"strconv"
 	"strings"
 
-	"cobra-Azure-tools/exportexcel"
-
 	"golang.org/x/crypto/ssh"
 
 	"log"
@@ -89,15 +87,6 @@ func Sysinfo(host, pwd, username string, port int, cmd string, excel bool) {
 		node.LoadAverage15m, _ = strconv.ParseFloat(data[13], 64)
 
 		_ = db.Model(&database.NodeInfo{}).Save(&node)
-	}
-
-	if excel {
-		if cmd == "uptime" {
-			exportexcel.ExportVmCpu()
-		} else {
-			fmt.Println("Excel export is currently only supported for 'uptime' command.")
-		}
-
 	}
 
 }
